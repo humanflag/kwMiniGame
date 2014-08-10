@@ -47,7 +47,7 @@ cities;
  */
 function main() {
 	// create game canvas and inputhandeler
-	screen = new Screen(570, 400);
+	screen = new Screen(900, 300);
 	input = new InputHandeler();
 
 	// create all sprites fram assets image
@@ -159,7 +159,7 @@ function init() {
 
 	// create and populate alien array
 	aliens = [];
-	var rows = [1, 1, 0, 0, 2];
+	var rows = [1, 0, 2];
 	for (var i = 0, len = rows.length; i < len; i++) {
 		for (var j = 0; j < 10; j++) {
 			var a = rows[i];
