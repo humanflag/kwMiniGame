@@ -47,7 +47,7 @@ cities;
  */
 function main() {
 	// create game canvas and inputhandeler
-	screen = new Screen(501, 400);
+	screen = new Screen(900, 400);
 	input = new InputHandeler();
 
 	// create all sprites fram assets image
@@ -108,7 +108,7 @@ function init() {
 			this.canvas.height = this.h;
 			this.ctx = this.canvas.getContext("2d");
 
-			for (var i = 0; i < 4; i++) {
+			for (var i = 0; i < 6; i++) {
 				this.ctx.drawImage(ciSprite.img, ciSprite.x, ciSprite.y,
 					ciSprite.w, ciSprite.h,
 					68 + 111*i, 0, ciSprite.w, ciSprite.h);
