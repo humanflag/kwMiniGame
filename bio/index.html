@@ -162,8 +162,8 @@ $(document).ready(function(e) {
 			ctx.strokeStyle = 'rgba(0,100,255,'+(0.4*Math.sin(p*2*Math.PI/(5*points))+0.7)+')';
 			// Draw the line
 			ctx.beginPath();
-			var y1 = (WIDTH/12)*Math.tan(2*Math.PI*(1/WIDTH)*p*xstep+t);
-			var y2 = (WIDTH/14)*Math.tan(2*Math.PI*(1/WIDTH)*(HEIGHT/2+p*xstep)+t);
+			var y1 = (WIDTH/11)*Math.tan(2*Math.PI*(1/WIDTH)*p*xstep+t);
+			var y2 = (WIDTH/9)*Math.tan(2*Math.PI*(1/WIDTH)*(HEIGHT/2+p*xstep)+t);
 			ctx.moveTo(p*xstep,y1);
 			ctx.lineTo(WIDTH/10+p*xstep,y2);
 			ctx.stroke();
@@ -176,7 +176,7 @@ $(document).ready(function(e) {
 			ctx.strokeStyle = 'rgba(0,80,255,'+(3*Math.sin(p*3*Math.PI/(4*points))+0.5)+')';
 			// Draw the line
 			ctx.beginPath();
-			var y1 = (WIDTH/8)*Math.sin(2*Math.PI*(1/HEIGHT)*p*xstep+t);
+			var y1 = (WIDTH/9)*Math.sin(2*Math.PI*(1/HEIGHT)*p*xstep+t);
 			var y2 = (WIDTH/5)*Math.sin(2*Math.PI*(1/HEIGHT)*(HEIGHT/2+p*xstep)+t);
 			ctx.moveTo(p*xstep,y1);
 			ctx.lineTo(HEIGHT/5+p*xstep,y2);
@@ -189,8 +189,8 @@ $(document).ready(function(e) {
 			ctx.strokeStyle = 'rgba(0,157,255,'+(2*Math.sin(p*3*Math.PI/(2*points))+0.5)+')';
 			// Draw the line
 			ctx.beginPath();
-			var y1 = (HEIGHT/7)*Math.sin(2*Math.PI*(1/WIDTH)*p*xstep+t);
-			var y2 = (HEIGHT/2)*Math.sin(2*Math.PI*(1/WIDTH)*(WIDTH/2+p*xstep)+t);
+			var y1 = (HEIGHT/15)*Math.sin(2*Math.PI*(1/WIDTH)*p*xstep+t);
+			var y2 = (HEIGHT/3)*Math.sin(2*Math.PI*(1/WIDTH)*(WIDTH/2+p*xstep)+t);
 			ctx.moveTo(p*xstep,y1);
 			ctx.lineTo(HEIGHT+p*xstep,y2);
 			ctx.stroke();
