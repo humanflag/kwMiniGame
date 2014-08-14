@@ -47,7 +47,7 @@ cities;
  */
 function main() {
 	// create game canvas and inputhandeler
-	screen = new Screen(900, 400);
+	screen = new Screen(960, 400);
 	input = new InputHandeler();
 
 	// create all sprites fram assets image
@@ -108,7 +108,7 @@ function init() {
 			this.canvas.height = this.h;
 			this.ctx = this.canvas.getContext("2d");
 
-			for (var i = 0; i < 6; i++) {
+			for (var i = 0; i < 8; i++) {
 				this.ctx.drawImage(ciSprite.img, ciSprite.x, ciSprite.y,
 					ciSprite.w, ciSprite.h,
 					68 + 111*i, 0, ciSprite.w, ciSprite.h);
@@ -161,7 +161,7 @@ function init() {
 	aliens = [];
 	var rows = [1, 1, 0, 0, 2];
 	for (var i = 0, len = rows.length; i < len; i++) {
-		for (var j = 0; j < 10; j++) {
+		for (var j = 0; j < 20; j++) {
 			var a = rows[i];
 			// create right offseted alien and push to alien
 			// array
