@@ -95,9 +95,9 @@ h1{
 </style>
 
 
-<div id='container'>
+<!-- <div id='container'>
 <h1>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br>HELLO WORLD <br></h1>
-</div>
+</div> -->
 
 <div id='sinusbylgjur'>
 
@@ -108,7 +108,8 @@ $(document).ready(function(e) {
 	var lastUpdate = 0
 	var fps = 30
 	
-	
+	var t = 0;
+
 	
 	
 	
@@ -117,7 +118,12 @@ $(document).ready(function(e) {
 	ctx = $('#bg')[0].getContext("2d");
 	
 	function clear() {
-		ctx.clearRect(0, 0-HEIGHT/2, WIDTH, HEIGHT);
+		// lower 0.05
+		// upper 0.1
+		// difference 0.05
+		var clearFlux = ((Math.sin((t / 8.0 * Math.PI)) + 1.0 ) * 0.05 + 0.05);
+		ctx.fillStyle = 'rgba(0,0,0,' + clearFlux + ')'; //  / 3.0 ) + 1.0) / 5.0 ) 
+		ctx.fillRect(0, 0-HEIGHT/2, WIDTH, HEIGHT);
 	}
 	
 	
@@ -134,21 +140,21 @@ $(document).ready(function(e) {
 		ctx.translate(0,HEIGHT/2);
 	}
 	
-	function mouseMove(e) {
-		ms.x = Math.max( Math.min( e.pageX - mp.x, 80 ), -80 );
-		ms.y = Math.max( Math.min( e.pageY - mp.y, 80 ), -80 );
+	// function mouseMove(e) {
+	// 	ms.x = Math.max( Math.min( e.pageX - mp.x, 80 ), -80 );
+	// 	ms.y = Math.max( Math.min( e.pageY - mp.y, 80 ), -80 );
 		
-		mp.x = e.pageX - canvasMinX;
-		mp.y = e.pageY - canvasMinY;
-	}
+	// 	mp.x = e.pageX - canvasMinX;
+	// 	mp.y = e.pageY - canvasMinY;
+	// }
 	var points = 100;
-	var t = 0;
 	var outline = true;
 	// Move 0,0 to the center of the screen
 	function draw(e) {
 		t = t+0.008;
+		var xshift = 100;
 		var ystep = HEIGHT/points;
-		var xstep = WIDTH/points;
+		var xstep = (WIDTH + 2 * xshift)/points;
 		
 		
 		if(outline){
@@ -164,8 +170,8 @@ $(document).ready(function(e) {
 			ctx.beginPath();
 			var y1 = (WIDTH/11)*Math.tan(2*Math.PI*(1/WIDTH)*p*xstep+t);
 			var y2 = (WIDTH/9)*Math.tan(2*Math.PI*(1/WIDTH)*(HEIGHT/2+p*xstep)+t);
-			ctx.moveTo(p*xstep,y1);
-			ctx.lineTo(WIDTH/10+p*xstep,y2);
+			ctx.moveTo(-xshift + p*xstep,y1);
+			ctx.lineTo(-xshift + WIDTH/10+p*xstep,y2);
 			ctx.stroke();
 			
 		}		
@@ -178,8 +184,8 @@ $(document).ready(function(e) {
 			ctx.beginPath();
 			var y1 = (WIDTH/9)*Math.sin(2*Math.PI*(1/HEIGHT)*p*xstep+t);
 			var y2 = (WIDTH/5)*Math.sin(2*Math.PI*(1/HEIGHT)*(HEIGHT/2+p*xstep)+t);
-			ctx.moveTo(p*xstep,y1);
-			ctx.lineTo(HEIGHT/5+p*xstep,y2);
+			ctx.moveTo(-xshift + p*xstep,y1);
+			ctx.lineTo(-xshift + HEIGHT/5+p*xstep,y2);
 			ctx.stroke();
 			
 		}
@@ -191,12 +197,10 @@ $(document).ready(function(e) {
 			ctx.beginPath();
 			var y1 = (HEIGHT/15)*Math.sin(2*Math.PI*(1/WIDTH)*p*xstep+t);
 			var y2 = (HEIGHT/3)*Math.sin(2*Math.PI*(1/WIDTH)*(WIDTH/2+p*xstep)+t);
-			ctx.moveTo(p*xstep,y1);
-			ctx.lineTo(HEIGHT+p*xstep,y2);
+			ctx.moveTo(-xshift + p*xstep,y1);
+			ctx.lineTo(-xshift + HEIGHT+p*xstep,y2);
 			ctx.stroke();
 		}
-
-		
 
 		
 	}
@@ -217,13 +221,20 @@ $(document).ready(function(e) {
 	// Actualizadores
 	resizeCanvas();
 	
+	$(window).resize(resizeCanvas);
+	// $(document).mousemove(mouseMove);
 	drawInterval = setInterval( frame, 1 );
+	draw();
 	$('#config input').change(function(){
 		switch($(this).attr('id')){
 			case 'pointsNum':
-				points = $(this).val();		
+				points = $(this).val();
+				break;
+			case 'outline':
+				outline = $(this).attr('checked');
+				break;
 		}
-		
+		return true;
 	});
 });
 </script>
