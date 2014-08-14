@@ -134,19 +134,18 @@ $(document).ready(function(e) {
 	}
 	
 	function mouseMove(e) {
-		ms.x = Math.max( Math.min( e.pageX - mp.x, 40 ), -40 );
-		ms.y = Math.max( Math.min( e.pageY - mp.y, 40 ), -40 );
+		ms.x = Math.max( Math.min( e.pageX - mp.x, 80 ), -80 );
+		ms.y = Math.max( Math.min( e.pageY - mp.y, 80 ), -80 );
 		
 		mp.x = e.pageX - canvasMinX;
 		mp.y = e.pageY - canvasMinY;
 	}
 	var points = 100;
 	var t = 0;
-	var dp = 0.01;
 	var outline = true;
 	// Move 0,0 to the center of the screen
 	function draw(e) {
-		t = t+0.005;
+		t = t+0.008;
 		var ystep = HEIGHT/points;
 		var xstep = WIDTH/points;
 		
@@ -156,18 +155,17 @@ $(document).ready(function(e) {
 			
 		}
 		
-		// Draw grid
 		
 		
 		for(var p = 0; p < points;p++){
 			// Change color
-			ctx.strokeStyle = 'rgba(0,100,255,'+(0.2*Math.sin(p*2*Math.PI/(1.5*points))+0.7)+')';
+			ctx.strokeStyle = 'rgba(0,100,255,'+(0.4*Math.sin(p*2*Math.PI/(5*points))+0.7)+')';
 			// Draw the line
 			ctx.beginPath();
-			var y1 = (WIDTH/2-11)*Math.tan(2*Math.PI*(1/WIDTH)*p*xstep+t);
-			var y2 = (WIDTH/2-12)*Math.tan(2*Math.PI*(1/WIDTH)*(HEIGHT/2+p*xstep)+t);
+			var y1 = (WIDTH/12)*Math.tan(2*Math.PI*(1/WIDTH)*p*xstep+t);
+			var y2 = (WIDTH/14)*Math.tan(2*Math.PI*(1/WIDTH)*(HEIGHT/2+p*xstep)+t);
 			ctx.moveTo(p*xstep,y1);
-			ctx.lineTo(WIDTH/2+p*xstep,y2);
+			ctx.lineTo(WIDTH/10+p*xstep,y2);
 			ctx.stroke();
 			
 		}		
@@ -175,26 +173,26 @@ $(document).ready(function(e) {
 
 		for(var p = 0; p < points;p++){
 			// Change color
-			ctx.strokeStyle = 'rgba(0,80,255,'+(0.5*Math.sin(p*3*Math.PI/(2*points))+0.5)+')';
+			ctx.strokeStyle = 'rgba(0,80,255,'+(3*Math.sin(p*3*Math.PI/(4*points))+0.5)+')';
 			// Draw the line
 			ctx.beginPath();
-			var y1 = (WIDTH/2-10)*Math.sin(2*Math.PI*(1/HEIGHT)*p*xstep+t);
-			var y2 = (WIDTH/2-10)*Math.sin(2*Math.PI*(1/HEIGHT)*(HEIGHT/2+p*xstep)+t);
+			var y1 = (WIDTH/8)*Math.sin(2*Math.PI*(1/HEIGHT)*p*xstep+t);
+			var y2 = (WIDTH/5)*Math.sin(2*Math.PI*(1/HEIGHT)*(HEIGHT/2+p*xstep)+t);
 			ctx.moveTo(p*xstep,y1);
-			ctx.lineTo(HEIGHT/2+p*xstep,y2);
+			ctx.lineTo(HEIGHT/5+p*xstep,y2);
 			ctx.stroke();
 			
 		}
 
 		for(var p = 0; p < points;p++){
 			// Change color
-			ctx.strokeStyle = 'rgba(0,157,255,'+(0.5*Math.sin(p*3*Math.PI/(2*points))+0.5)+')';
+			ctx.strokeStyle = 'rgba(0,157,255,'+(2*Math.sin(p*3*Math.PI/(2*points))+0.5)+')';
 			// Draw the line
 			ctx.beginPath();
-			var y1 = (HEIGHT/2-10)*Math.sin(2*Math.PI*(1/WIDTH)*p*xstep+t);
-			var y2 = (HEIGHT/2-10)*Math.sin(2*Math.PI*(1/WIDTH)*(WIDTH/2+p*xstep)+t);
+			var y1 = (HEIGHT/7)*Math.sin(2*Math.PI*(1/WIDTH)*p*xstep+t);
+			var y2 = (HEIGHT/2)*Math.sin(2*Math.PI*(1/WIDTH)*(WIDTH/2+p*xstep)+t);
 			ctx.moveTo(p*xstep,y1);
-			ctx.lineTo(HEIGHT/2+p*xstep,y2);
+			ctx.lineTo(HEIGHT+p*xstep,y2);
 			ctx.stroke();
 		}
 
