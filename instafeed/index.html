@@ -62,7 +62,7 @@ body {
         limit: '60',
         sortBy: 'most-recent'
         filter: function(image) {
-		    return !(image.tags.indexOf('heartoficeland') >= 0);
+		    return (image.tags.indexOf('heartoficeland') >= 0);
 		}
     });
     feed.run();
