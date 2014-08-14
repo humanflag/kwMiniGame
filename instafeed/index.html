@@ -51,6 +51,7 @@ body {
         sortBy: 'most-recent'
     });
     feed.run();
+
 </script>
 
 <script type="text/javascript">
@@ -60,6 +61,9 @@ body {
         clientId: '364abb29b05348e499a3faeece9e3708',
         limit: '60',
         sortBy: 'most-recent'
+        filter: function(image) {
+		    return !(image.tags.indexOf('heartoficeland') >= 0);
+		}
     });
     feed.run();
 </script>
