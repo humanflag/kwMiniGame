@@ -195,8 +195,8 @@ $(document).ready(function(e) {
 			ctx.strokeStyle = 'rgba(0,157,255,'+(2*Math.sin(p*3*Math.PI/(2*points))+0.5)+')';
 			// Draw the line
 			ctx.beginPath();
-			var y1 = (HEIGHT/15)*Math.sin(2*Math.PI*(1/WIDTH)*p*xstep+t*1.25);
-			var y2 = (HEIGHT/3)*Math.sin(2*Math.PI*(1/WIDTH)*(WIDTH/2+p*xstep)+t*1.25);
+			var y1 = (HEIGHT/15)*Math.sin(2*Math.PI*(1/WIDTH)*p*xstep+t*0.6);
+			var y2 = (HEIGHT/3)*Math.sin(2*Math.PI*(1/WIDTH)*(WIDTH/2+p*xstep)+t*0.6);
 			ctx.moveTo(-xshift + p*xstep,y1);
 			ctx.lineTo(-xshift + HEIGHT+p*xstep,y2);
 			ctx.stroke();
