@@ -140,7 +140,7 @@ $(document).ready(function(e) {
 		mp.x = e.pageX - canvasMinX;
 		mp.y = e.pageY - canvasMinY;
 	}
-	var points = 40;
+	var points = 100;
 	var t = 0;
 	var dp = 0.01;
 	var outline = true;
@@ -194,7 +194,7 @@ $(document).ready(function(e) {
 			var y1 = (HEIGHT/2-10)*Math.sin(2*Math.PI*(1/WIDTH)*p*xstep+t);
 			var y2 = (HEIGHT/2-10)*Math.sin(2*Math.PI*(1/WIDTH)*(WIDTH/2+p*xstep)+t);
 			ctx.moveTo(p*xstep,y1);
-			ctx.lineTo(WIDTH/2+p*xstep,y2);
+			ctx.lineTo(HEIGHT/2+p*xstep,y2);
 			ctx.stroke();
 		}
 
