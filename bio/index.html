@@ -50,7 +50,8 @@ h1{
 
 #container {
 	
-	width: 75%;position:fixed;
+	width: 75%;
+	position:absolute;
 	left: 50%;
 	margin: 0 0 0 -37.5%;
 	background-color: rgba(255,255,255,0.96);
@@ -104,8 +105,8 @@ h1{
 $(document).ready(function(e) {
 // VARIABLES
 	var ctx;
-	
-	
+	var lastUpdate = 0
+	var fps = 30
 	
 	
 	
@@ -148,7 +149,6 @@ $(document).ready(function(e) {
 		t = t+0.008;
 		var ystep = HEIGHT/points;
 		var xstep = WIDTH/points;
-		
 		
 		
 		if(outline){
@@ -208,7 +208,7 @@ $(document).ready(function(e) {
 		draw();
 		// Now calculate FPS
 		var thisFrameFPS = 1000 / ((now=new Date) - lastUpdate);
-		fps += (thisFrameFPS - fps) / fpsFilter;
+		//fps += (thisFrameFPS - fps) / fpsFilter;
 		lastUpdate = now * 1 - 1;
 	}
 	
