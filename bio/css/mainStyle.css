@@ -1,0 +1,87 @@
+
+body
+	{	
+	margin:0;
+	padding:0;
+	font-family:"Raleway", Helvetica, Arial, sans-serif;
+	font-size:100%;
+	position:relative;
+    background-color:white;
+	}
+
+
+h1	
+	{
+	font-size: 50px; 
+	color: black;
+	background-color:rgba(255,255,255,0);
+	text-align: center;
+	}
+
+
+h2	
+	{
+	font-size: 50px; 
+	color: black;
+	background-color:rgba(255,255,255,0);
+	text-align: left;
+	}
+
+
+h3
+	{
+	font-size: 50px; 
+	color: black;
+	background-color:rgba(255,255,255,0);
+	text-align: left;
+	margin-left: 60px; 
+	}
+
+
+#sinusbylgjur 
+	{
+	position: fixed;
+	z-index: -1;
+	}
+
+
+#container 
+	{
+	width: 75%;
+	position:absolute;
+	left: 50%;
+	margin: 0 0 0 -37.5%;
+	background-color: rgba(255,255,255,0);
+	}
+
+
+#contentHolder
+	{
+	position: relative;
+	margin-top: 200px;
+	border:12px solid;
+	border-color: black;
+	background-color: rgba(255,255,255,0.92);
+	}
+
+
+#fanastong
+	{
+	float: right;
+	position: relative;
+	margin-top: 60px;
+	}
+
+#fanar
+{
+
+	padding-left: -60px;
+}	
+
+#fani
+	{
+	float: right;
+	width: 30%;
+    height: auto;
+
+	}
