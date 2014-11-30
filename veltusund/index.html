@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<link href="veltu.css" rel="stylesheet" />
+<script src="http://threedubmedia.com/inc/js/jquery-1.7.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/jquery.event.drag-2.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/jquery.event.drag.live-2.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/jquery.event.drop-2.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/jquery.event.drop.live-2.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/excanvas.min.js"></script>
+<script src="loadie.min.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-98841-11']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<title>Veltusund</title>
+
+<script type="text/javascript">
+
+
+</script>
+
+<script type="text/javascript">
+var dir = "img";
+var fileextension = ".";
+$.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+        //Lsit all png file names in the page
+        // $(data).find("a:contains(" + fileextension + ")").each(function () {
+        $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () { // here comes the rest of the function made by Roy M J   
+          console.log("herro");
+          console.log("href: " + this.href)
+            var unsplitfilename = this.href.replace(window.location.host, "").replace("http:///", "");
+
+          console.log(unsplitfilename);
+            var derp = "" + unsplitfilename;
+          console.log(derp);
+
+            var parts = derp.split("/");
+            console.log(parts);
+
+            var filename = parts[parts.length - 1];
+
+            console.log("dir: " + dir);
+            console.log("filename: " + filename);
+            // $("body").append($("<img src=" + dir + "/" + filename + "></img>"));
+            $("body").append($("<div class=\"drag\" style=\"left:20px;\"><img src=\"" + dir + "/" + filename + "\" class=\"saes\"></div>"));
+// <div class="drag" style="left:20px;"><img src="img/haru/iceberg3.gif" class="saes"></div>
+
+        });
+    }
+});
+   </script>
+
+
+<script type="text/javascript">
+$('body').loadie(); // Change the wrapper if wanted.
+</script>
+
+
+
+</head>
+<body>
+
+
+
+
+<script type="text/javascript">
+// jQuery(function($){
+$(window).load(function(){ 
+  $('.drag')
+    .click(function(){
+      $( this ).toggleClass("top");
+      console.debug("derp");     
+      var topZ = 0;
+      $('.drag').each(function(){
+      var thisZ = parseInt($(this).css('zIndex'), 10);
+      if (thisZ > topZ){
+        topZ = thisZ;
+      }
+      });
+      $( this ).css('zIndex', topZ+1);
+      console.log("harro");     
+    })
+    .drag("init",function(){
+      $( this ).toggleClass("top");
+      console.debug("derp");     
+      var topZ = 0;
+      $('.drag').each(function(){
+      var thisZ = parseInt($(this).css('zIndex'), 10);
+      if (thisZ > topZ){
+        topZ = thisZ;
+      }
+      });
+      $( this ).css('zIndex', topZ+1);
+      console.log("harro");     
+    })
+    .drag(function( ev, dd ){
+      $( this ).css({
+        top: dd.offsetY,
+        left: dd.offsetX
+      });
+    });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var quotes = new Array
+    (
+      "A multi sensory laboratory", 
+      "Inspiratory studio", 
+      "Deep tissue visualization", 
+      "sensational nails"
+      ),
+    randno = quotes[Math.floor( Math.random() * quotes.length )];
+    $('.quote').text( randno );
+});
+</script>
+
+<h1>Veltusund</h1>
+<p class="quote"></p>
+
+<!-- <div class="drag" style="left:20px;"><img src="img/haru/iceberg3.gif" class="saes"></div>
+<div class="drag" style="left:100px;"><img src="img/katla/gard.jpg" class="saes"></div>
+<div class="drag" style="left:180px;"><img src="img/jb.jpg" class="saes"></div> -->
+
+
+<style type="text/css">
+.drag {
+  position: absolute;
+  cursor: move;
+  top: 120px;
+  }
+.selected {
+  }
+
+  .top{
+  z-index: 3;
+
+  
+  }
+</style></body>
+</html>
